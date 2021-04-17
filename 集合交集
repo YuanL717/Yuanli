@@ -1,0 +1,27 @@
+//自己的解法，比较简单无排序。
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> temp_vec;
+        for(const auto& temp1 : nums1){
+            if(!temp_vec.empty()){
+                int flag = 0;
+                for(const auto& temp : temp_vec){
+                    if(temp1 == temp){
+                        flag = 1;
+                        break;
+                    }
+                }
+                if(flag == 1)
+                    continue;
+            }
+            for(const auto& temp2 : nums2){
+                if(temp1 == temp2){
+                    temp_vec.push_back(temp1);
+                    break;
+                }
+            }
+        }
+        return temp_vec;
+    }
+};
